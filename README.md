@@ -19,3 +19,5 @@ Files required:
 - new_and_improved.gif
 - bullet.jpg
 - speed_boost.png
+
+Pygame is also required to run the game. It can be downloaded here: http://www.pygame.org/download.shtml
