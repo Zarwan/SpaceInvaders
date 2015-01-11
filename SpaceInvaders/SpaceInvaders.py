@@ -8,6 +8,8 @@ import random
 
 #Pygame setup
 pygame.init()
+pygame.display.set_caption("Space Invaders")
+pygame.display.set_icon(pygame.image.load("space_invaders_icon.gif"))
 size = (1000, 600)
 screen = pygame.display.set_mode(size)
 myClock = pygame.time.Clock()
