@@ -1,6 +1,5 @@
 # Name: Zarwan Hashem
-# Date: Dec. 13, 2012
-# Class: ICS3U1-01
+# Date: Jan. 10, 2015
 # Description: Space Invaders characters.
 
 #Import statements
@@ -91,7 +90,7 @@ def alien_three(x): #Blue Alien (Initial x is 500)
     
 def boss_alien(x, y):
     
-    #This if statement changes the colour of the boss alien depending on how many times it has been hit
+    #Changes the colour of the boss alien depending on how many times it has been hit
     if boss_lives == 3:
         pygame.draw.rect (screen, WHITE, pygame.Rect(x, y + 50, 30, 50)) #Body
     elif boss_lives == 2:
@@ -324,7 +323,7 @@ while game_running:
                     pygame.display.flip()
                     pygame.time.wait(2000)
                     
-                    #This loop controls the changing of levels
+                    #Controls the changing of levels
                     while running:
                         
                         #Stops the game music, the restarts it depending on the level
@@ -422,7 +421,7 @@ while game_running:
                         game_over = False
                         you_win = False                        
                         
-                        #This loop controls how each level works
+                        #Controls how each level works
                         while game_over == False and you_win == False:
                             
                             #Checks for events
@@ -474,7 +473,7 @@ while game_running:
                                 #If this isn't the last level (So there is no boss alien)
                                 if current_level < LAST_LEVEL:
                                     
-                                    #Checks if the shot has hit any red aliens, and if it has, removes the alien and resets the shooting variables
+                                    #Checks if the shot has hit any red aliens, if it has, removes the alien and resets the shooting variables
                                     for j in range(0, len(alien_ones_exist)):
                                         if alien_ones_exist[j] == True:
                                             
@@ -490,7 +489,7 @@ while game_running:
                                                 break
                                                 
                                             
-                                    #Checks if the shot has hit any white aliens, and if it has, removes the alien and resets the shooting variables
+                                    #Checks if the shot has hit any white aliens, if it has, removes the alien and resets the shooting variables
                                     if len(alien_twos_exist) >= 1:
                                         for p in range(0, len(alien_twos_exist)):
                                             if alien_twos_exist[p] == True:
@@ -506,7 +505,7 @@ while game_running:
                                                     dead_alien_twos += 1
                                                     break
                                               
-                                    #Checks if the shot has hit any blue aliens, and if it has, removes the alien and resets the shooting variables
+                                    #Checks if the shot has hit any blue aliens, if it has, removes the alien and resets the shooting variables
                                     if len(alien_threes_exist) >= 1:
                                         for n in range(0, len(alien_threes_exist)):
                                             if alien_threes_exist[n] == True:
@@ -532,7 +531,7 @@ while game_running:
                                         shot_fired = False
                                         shots_left -= 1
                                         
-                                        #Kills the boss if all of its' lives are gone
+                                        #Kills the boss if all of its lives are gone
                                         if boss_lives <= 0:
                                             boss_exist = False
                                             score += BOSS_SCORE_INC
@@ -581,7 +580,7 @@ while game_running:
                                 for o in range(0, len(alien_ones_exist)): #Goes through the list of red aliens
                                     if alien_ones_exist[o] == True:
                                         
-                                        #These two if statements make sure the aliens don't move off the screen before moving them
+                                        #Make sure the aliens don't move off the screen before moving them
                                         if alien_one_left == True and alien_ones_x[o] >= ALIEN1_LEFT_BORDER:
                                             alien_ones_x[o] -= 1
                                         else:
@@ -597,7 +596,7 @@ while game_running:
                                     for k in range(0, len(alien_twos_exist)): #Goes through the list of white aliens
                                         if alien_twos_exist[k] == True:
                                             
-                                            #These two if statements make sure the aliens don't move off the screen before moving them
+                                            #Make sure the aliens don't move off the screen before moving them
                                             if alien_two_left == True and alien_twos_x[k] >= ALIEN2_LEFT_BORDER:
                                                 alien_twos_x[k] -= ALIEN2_MOVEMENT
                                             else:
@@ -612,7 +611,7 @@ while game_running:
                                 if len(alien_threes_exist) >= 1:
                                     for k in range(0, len(alien_threes_exist)): #Goes through the list of blue aliens
                                         
-                                        #These two if statements make sure the aliens don't move off the screen before moving them
+                                        #Make sure the aliens don't move off the screen before moving them
                                         if alien_threes_exist[k] == True:
                                             if alien_three_left == True and alien_threes_x[k] >= 100:
                                                 alien_threes_x[k] -= ALIEN3_MOVE
@@ -666,12 +665,12 @@ while game_running:
                                 if boss_exist == False: #Checks if the boss is dead (and it's the last level)
                                     you_win = True
                                 else:
-                                    #Boss alien Movement
+                                    #Boss alien movement
                                     if boss_exist == True:
                                         if boss_moved == True: #If the boss is moving
                                             boss_move = random.randint(50, 200) #Randomly moves the boss
                                             
-                                            #These if statements make sure the boss doesn't go off screen before it moves
+                                            #Make sure the boss doesn't go off screen before it moves
                                             if boss_left == True and (boss_x - boss_move) >= MIN_BOSS_X:
                                                 boss_x -= boss_move
                                             else:
@@ -869,7 +868,7 @@ while game_running:
                                 speed_level = current_level
                                 speed_bonusy = POWERUP_INITIAL_Y
                                 
-                                #Keeps changing the location of the powerup until it won't hit the alien bodies
+                                #Keeps changing the height of the powerup until it won't hit the alien bodies
                                 while True:
                                     if ((speed_bonusy > ALIEN1_MIN_Y and speed_bonusy < ALIEN1_MAX_Y) or (speed_bonusy > ALIEN2_MIN_Y and speed_bonusy < ALIEN2_MAX_Y) or (speed_bonusy > ALIEN3_MIN_Y and speed_bonusy < ALIEN3_MAX_Y)) or ((speed_bonusy + POWERUP_WIDTH > ALIEN1_MIN_Y and speed_bonusy + POWERUP_WIDTH < ALIEN1_MAX_Y) or (speed_bonusy + POWERUP_WIDTH > ALIEN2_MIN_Y and speed_bonusy + POWERUP_WIDTH < ALIEN2_MAX_Y) or (speed_bonusy + POWERUP_WIDTH > ALIEN3_MIN_Y and speed_bonusy + POWERUP_WIDTH < ALIEN3_MAX_Y)):
                                         speed_bonusy = random.randint (200, 500)
@@ -976,7 +975,7 @@ while game_running:
                                 myClock.tick(100)
                     
                             
-                #Checks if the player has chosen to read the instructions from the menu                
+                #IF player has chosen to read the instructions from the menu                
                 elif evnt.pos[0] >= INSTRUC_BUTTON_X and evnt.pos[0] <= INSTRUC_BUTTON_X2 and evnt.pos[1] >= INSTRUC_BUTTON_Y and evnt.pos[1] <= INSTRUC_BUTTON_Y2:
                     instructions_running = True
                     
